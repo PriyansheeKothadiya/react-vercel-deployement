@@ -5,8 +5,10 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const stored = localStorage.getItem('theme')
-    if (stored) setMode(stored)
-    apply(stored || mode)
+    const prefers = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    const initial = stored || (prefers ? 'dark' : 'light')
+    setMode(initial)
+    apply(initial)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

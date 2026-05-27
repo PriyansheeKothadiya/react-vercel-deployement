@@ -4,23 +4,131 @@
 
 :root{
   --glass: rgba(255,255,255,0.06);
+  /* Core brand colors (also used by Tailwind config) */
+  --primary: #6d28d9; /* richer purple for buttons in light mode */
+  --accent: #a78bfa; /* softer lavender accent to pair with primary */
+
+  /* Light theme variables */
+  --bg: #f7fafc; /* soft off-white */
+  --text: #0f172a; /* dark slate */
+  --muted: #64748b; /* muted slate */
+  --card-bg: #ffffff; /* white cards */
+  --card-border: rgba(15,23,42,0.06);
+  --nav-bg: rgba(255,255,255,0.8);
+  --footer-bg-from: #f8f5ff; /* subtle lavender-tinged footer */
+  --footer-bg-to: #eef2ff;
 }
 
-html, body, #root { min-height: 100vh; margin: 0; background-color: #020817; overflow-x: hidden; }
-body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto; color: #E6EEF8; }
+/* Dark theme overrides when `html.dark` is present */
+html.dark {
+  --bg: #020817;
+  --text: #E6EEF8;
+  --muted: #9CA3AF;
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.06);
+  --nav-bg: rgba(6,8,20,0.5);
+  --footer-bg-from: rgba(8,17,32,0.9);
+  --footer-bg-to: rgba(2,8,23,1);
+}
+/* Adjust brand colors for dark mode for better contrast */
+html.dark {
+  --primary: #8b5cf6;
+  --accent: #06b6d4;
+}
 
-.container { max-width: 1100px; margin-left: auto; margin-right: auto; }
+html, body, #root { min-height: 100vh; margin: 0; background-color: var(--bg); overflow-x: hidden; }
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto; color: var(--text); }
 
-.btn-primary { @apply bg-gradient-to-r from-primary to-accent text-white font-medium px-4 py-2 rounded-lg shadow-md }
-.card { @apply bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-lg p-4 shadow-sm }
+ .container { max-width: 1100px; margin-left: auto; margin-right: auto; }
+/* Wider container for premium layout */
+.container { max-width: 1400px; }
 
-/* Footer specific helpers */
-.footer-bg { background: linear-gradient(180deg, rgba(8,17,32,0.9), rgba(2,8,23,1)); }
+.btn-primary {
+  background-image: linear-gradient(90deg, var(--primary), var(--accent));
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(99,102,241,0.12);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(99,102,241,0.16); }
+.btn-secondary {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(15,23,42,0.08);
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  transition: background 220ms ease, transform 220ms ease;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.9); transform: translateY(-2px); }
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 10px 40px rgba(2,8,23,0.06);
+}
+
+/* Navbar styles for light mode */
+html:not(.dark) header { background-color: var(--nav-bg); border-bottom: 1px solid rgba(15,23,42,0.06); }
+html:not(.dark) .nav-link { color: var(--muted) !important; }
+html:not(.dark) .nav-link:hover::after { background: linear-gradient(90deg,var(--primary),var(--accent)); }
+html:not(.dark) header a.text-white { color: var(--primary) !important; }
+
+/* Footer light-mode overrides */
+.footer-bg { background: linear-gradient(180deg, var(--footer-bg-from), var(--footer-bg-to)); }
+
+/* Glass element tweak for light theme */
+.glass { background: rgba(255,255,255,0.85); }
+
+/* Light-mode text overrides: ensure readable dark text for common utility classes */
+html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3, html:not(.dark) h4, html:not(.dark) h5, html:not(.dark) h6,
+html:not(.dark) .font-extrabold, html:not(.dark) .font-bold {
+  color: var(--text) !important;
+}
+
+html:not(.dark) .text-white { color: var(--text) !important; }
+html:not(.dark) .text-gray-50 { color: var(--text) !important; }
+html:not(.dark) .text-gray-100 { color: var(--muted) !important; }
+html:not(.dark) .text-gray-300, html:not(.dark) .text-gray-400, html:not(.dark) .text-gray-500 {
+  color: var(--muted) !important;
+}
+
+/* Links and nav in light mode */
+html:not(.dark) a { color: var(--primary); }
+html:not(.dark) .text-primary { color: var(--primary) !important; }
+
+/* Slightly darker placeholders */
+html:not(.dark) ::placeholder { color: rgba(15,23,42,0.45) !important; }
+
+/* Light-mode: override very dark hero backgrounds to soft, bright gradients */
+html:not(.dark) section.bg-gradient-to-b.from-black,
+html:not(.dark) [class*="bg-gradient-to-b"][class*="from-black"] {
+  background-image: linear-gradient(to bottom, rgba(247,250,252,1), rgba(241,245,249,1)) !important;
+}
+
+/* Light-mode: soften large background blobs used as decorative elements */
+html:not(.dark) [class*="bg-gradient-to-br"][class*="-z-10"],
+html:not(.dark) [class*="bg-gradient-to-br"][class*="inset-0"] {
+  background-image: radial-gradient(circle at 20% 20%, rgba(236, 232, 255,0.55), rgba(247,250,252,0.7) 40%) !important;
+  opacity: 0.95 !important;
+}
+
+/* Ensure hero headings stay dark in bright sections */
+html:not(.dark) section h1, html:not(.dark) section h2 { color: var(--text) !important; }
+
+.footer-bg { background: linear-gradient(180deg, var(--footer-bg-from), var(--footer-bg-to)); }
+.footer-bg { background-repeat: no-repeat; }
+
+/* Dark-mode footer override */
+html.dark .footer-bg { background: linear-gradient(180deg, rgba(8,17,32,0.9), rgba(2,8,23,1)); }
 .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(6px); }
 
 /* Global motion & hover utilities */
 .soft-transition { transition: all 300ms ease-in-out; }
-.hover-glow:hover { box-shadow: 0 10px 30px rgba(99,102,241,0.12), 0 4px 12px rgba(59,130,246,0.06); }
+.hover-glow:hover { box-shadow: 0 12px 40px rgba(2,8,23,0.06), 0 6px 18px rgba(99,102,241,0.08); transform: translateY(-6px); }
 .focus-glow:focus { box-shadow: 0 6px 20px rgba(99,102,241,0.12); outline: none; }
 .border-glow { border: 1px solid rgba(99,102,241,0.08); }
 
@@ -35,7 +143,7 @@ body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 
 
 /* Button glow */
 .btn-glow { transition: transform 260ms ease, box-shadow 260ms ease; }
-.btn-glow:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(99,102,241,0.18); }
+.btn-glow:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 60px rgba(102,51,153,0.12); }
 
 /* Prevent overflow from floating elements */
 .no-x-overflow { overflow-x: hidden; }
@@ -44,3 +152,29 @@ body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 
 .debug-outline * { outline: 1px solid rgba(255,0,0,0.06); }
 
 /* Keep native scrollbars (don't hide globally) to avoid layout issues */
+
+/* Thin modern scrollbar */
+*::-webkit-scrollbar { height: 8px; width: 8px; }
+*::-webkit-scrollbar-thumb { background: rgba(15,23,42,0.12); border-radius: 9999px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* Hero utilities */
+.hero { padding-top: 7rem; padding-bottom: 6rem; }
+.hero .lead { font-size: 72px; line-height: 0.95; font-weight: 800; color: var(--text); }
+.hero .sub { font-size: 18px; color: var(--muted); }
+.hero-badge { display: inline-block; background: linear-gradient(90deg, rgba(139,92,246,0.12), rgba(6,182,212,0.08)); color: var(--primary); padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 13px; }
+
+/* Background blobs */
+.bg-blob { position: absolute; border-radius: 9999px; filter: blur(80px); pointer-events: none; opacity: 0.18; }
+.bg-blob.top-left { width: 680px; height: 680px; left: -200px; top: -200px; background: radial-gradient(circle at 20% 20%, rgba(139,92,246,0.9), rgba(139,92,246,0.2)); }
+.bg-blob.bottom-right { width: 720px; height: 720px; right: -240px; bottom: -240px; background: radial-gradient(circle at 80% 80%, rgba(6,182,212,0.9), rgba(6,182,212,0.12)); }
+
+/* Floating mockup */
+.mockup { border-radius: 20px; overflow: visible; }
+.mockup-shadow { box-shadow: 0 30px 80px rgba(2,8,23,0.08); }
+
+/* Section spacing */
+.section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+
+/* Rounded everywhere */
+* { border-radius: 12px; }

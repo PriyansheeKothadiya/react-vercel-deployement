@@ -13,7 +13,7 @@ function FooterLink({ children }) {
 export default function Footer() {
   const [email, setEmail] = useState('')
   return (
-    <footer className="relative footer-bg text-gray-300 pt-16 pb-8 overflow-hidden">
+    <footer className="relative footer-bg text-gray-700 dark:text-gray-300 pt-16 pb-8 overflow-hidden">
       {/* Glow blobs */}
       <div className="absolute -top-40 left-0 w-96 h-96 rounded-full bg-gradient-to-tr from-purple-700/20 to-blue-400/10 blur-3xl opacity-60 pointer-events-none" />
       <div className="absolute -bottom-40 right-0 w-96 h-96 rounded-full bg-gradient-to-tr from-blue-700/10 to-purple-400/10 blur-3xl opacity-50 pointer-events-none" />

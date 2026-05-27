@@ -308,7 +308,7 @@ export default function Features() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-br from-primary/10 to-accent/5">
+      <section className="py-16 bg-gradient-to-br to-accent/5">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold">Transform Your Team Workflow Today</h2>
           <p className="text-gray-400 mt-3">Start a free trial or book a demo to see SmartDesk in action.</p>

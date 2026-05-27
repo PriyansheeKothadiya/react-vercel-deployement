@@ -2,10 +2,22 @@ import React, { useEffect } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 // CursorGlow follows pointer inside given parentRef
-export default function CursorGlow({ parentRef, size = 220, colorFrom = 'rgba(139,92,246,0.28)', colorTo = 'rgba(6,182,212,0.12)', blur = 80 }) {
+export default function CursorGlow({ parentRef, size = 220, colorFrom, colorTo, blur = 80 }) {
+  function themeColors() {
+    const isDark = typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+    if (isDark) {
+      // subtle cool-lavender wash on dark mode
+      return { from: 'rgba(255,255,255,0.20)', to: 'rgba(139,92,246,0.12)' }
+    }
+    // light mode: stronger, darker lavender/purple wash (matches attached image)
+    return { from: 'rgba(102,51,153,0.36)', to: 'rgba(237,225,255,0.14)' }
+  }
+
+  const initial = themeColors()
   const x = useMotionValue(-9999)
   const y = useMotionValue(-9999)
   const opacity = useMotionValue(0)
+  const colors = useMotionValue({ from: initial.from, to: initial.to })
 
   const sx = useSpring(x, { stiffness: 200, damping: 30 })
   const sy = useSpring(y, { stiffness: 200, damping: 30 })
@@ -37,7 +49,17 @@ export default function CursorGlow({ parentRef, size = 220, colorFrom = 'rgba(13
     }
   }, [parentRef])
 
-  const gradient = `radial-gradient(closest-corner at 50% 50%, ${colorFrom} 0%, ${colorTo} 40%, rgba(2,8,23,0) 70%)`
+  useEffect(() => {
+    const obs = new MutationObserver(() => {
+      const c = themeColors()
+      colors.set({ from: c.from, to: c.to })
+    })
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    return () => obs.disconnect()
+  }, [])
+
+  const g = colors.get()
+  const gradient = `radial-gradient(closest-corner at 50% 50%, ${g.from} 0%, ${g.to} 40%, rgba(2,8,23,0) 70%)`
 
   return (
     <motion.div
