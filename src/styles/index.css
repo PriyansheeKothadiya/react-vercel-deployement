@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --glass: rgba(255,255,255,0.06);
+}
+
+html, body, #root { min-height: 100vh; margin: 0; background-color: #020817; overflow-x: hidden; }
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto; color: #E6EEF8; }
+
+.container { max-width: 1100px; margin-left: auto; margin-right: auto; }
+
+.btn-primary { @apply bg-gradient-to-r from-primary to-accent text-white font-medium px-4 py-2 rounded-lg shadow-md }
+.card { @apply bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-lg p-4 shadow-sm }
+
+/* Footer specific helpers */
+.footer-bg { background: linear-gradient(180deg, rgba(8,17,32,0.9), rgba(2,8,23,1)); }
+.glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(6px); }
+
+/* Global motion & hover utilities */
+.soft-transition { transition: all 300ms ease-in-out; }
+.hover-glow:hover { box-shadow: 0 10px 30px rgba(99,102,241,0.12), 0 4px 12px rgba(59,130,246,0.06); }
+.focus-glow:focus { box-shadow: 0 6px 20px rgba(99,102,241,0.12); outline: none; }
+.border-glow { border: 1px solid rgba(99,102,241,0.08); }
+
+/* Navbar link underline animation */
+.nav-link { position: relative; display: inline-block; padding-bottom: 6px; }
+.nav-link::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: linear-gradient(90deg,#8b5cf6,#06b6d4); transition: width 250ms ease-in-out; border-radius: 2px; }
+.nav-link:hover::after { width: 100%; }
+
+/* Image hover */
+.img-hover { transition: transform 350ms ease, box-shadow 350ms ease; }
+.img-hover:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 40px rgba(2,8,23,0.6); }
+
+/* Button glow */
+.btn-glow { transition: transform 260ms ease, box-shadow 260ms ease; }
+.btn-glow:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(99,102,241,0.18); }
+
+/* Prevent overflow from floating elements */
+.no-x-overflow { overflow-x: hidden; }
+
+/* DEBUG helper — outlines elements to locate overflow issues. Remove after debugging. */
+.debug-outline * { outline: 1px solid rgba(255,0,0,0.06); }
+
+/* Keep native scrollbars (don't hide globally) to avoid layout issues */
