@@ -16,7 +16,7 @@
     "react-icons": "4.10.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "4.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "10.4.14",
     "postcss": "8.4.24",
     "prettier": "2.8.8",
