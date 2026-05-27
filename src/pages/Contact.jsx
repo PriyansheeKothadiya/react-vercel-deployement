@@ -5,7 +5,7 @@ import FAQAccordion from '../components/FAQAccordion'
 import Footer from '../components/Footer'
 
 const ContactCard = ({ icon, title, desc, action }) => (
-  <div className="group relative p-6 rounded-2xl bg-white/60 dark:bg-white/6 backdrop-blur-md border border-white/6 hover:shadow-lg transition-shadow">
+  <div className="group relative p-6 rounded-2xl dark:bg-[rgba(255,255,255,0.04)] backdrop-blur-md border border-white/6 dark:border-white/12 hover:shadow-lg transition-shadow">
     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-blue-400 flex items-center justify-center text-white text-xl shadow-md">{icon}</div>
     <h4 className="mt-4 font-semibold text-gray-900 dark:text-white">{title}</h4>
     <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{desc}</p>
@@ -38,7 +38,7 @@ export default function Contact() {
 
             <div className="mt-6 flex gap-3">
               <a href="#contact-form" className="btn-primary">Send a Message</a>
-              <a href="#support" className="btn-primary bg-transparent text-primary border border-gray-200 dark:border-white/10">Live Chat</a>
+              <a href="#support" className="btn-outline">Live Chat</a>
             </div>
           </motion.div>
 
@@ -50,7 +50,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="absolute -bottom-8 right-8 w-56 p-4 rounded-xl bg-white/60 dark:bg-white/6 border border-white/6 backdrop-blur-md shadow-lg">
+            <div className="absolute -bottom-8 right-8 w-56 p-4 rounded-xl dark:bg-white/6 border border-white/6 backdrop-blur-md shadow-lg">
               <div className="text-xs text-gray-500 dark:text-gray-300">Live support</div>
               <div className="font-semibold">Agents online</div>
               <div className="mt-3 text-sm text-gray-600 dark:text-gray-300">Typical response time: <span className="font-medium">under 2 hours</span></div>
@@ -79,7 +79,7 @@ export default function Contact() {
             <SectionTitle title="Send Us a Message" subtitle="We typically reply within 24 hours" />
             <p className="text-gray-600 dark:text-gray-300 mt-2">Please include a brief description of your needs and any relevant links. Our team will route your message to the right specialist.</p>
 
-            <form className="mt-6 space-y-4 bg-white/60 dark:bg-white/6 p-6 rounded-2xl border border-white/6 backdrop-blur-md" onSubmit={(e)=>e.preventDefault()}>
+            <form className="mt-6 space-y-4 dark:bg-white/6 p-6 rounded-2xl border border-white/6 backdrop-blur-md" onSubmit={(e)=>e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FloatingInput id="name" label="Full name" required />
                 <FloatingInput id="email" label="Email address" type="email" required />
@@ -102,7 +102,7 @@ export default function Contact() {
           </div>
 
           <div className="space-y-6">
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-white/60 to-white/30 dark:from-white/4 dark:to-white/2 border border-white/6 backdrop-blur-md">
+            <div className="p-6 rounded-2xl bg-gradient-to-br to-white/30 dark:from-white/4 dark:to-white/2 border border-white/6 backdrop-blur-md">
               <h4 className="font-semibold text-gray-900 dark:text-white">Live Support</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">Chat with our support agents or use our AI assistant for instant help.</p>
               <div className="mt-4 flex items-center gap-3">
@@ -119,7 +119,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/50 dark:bg-white/6 border border-white/6 backdrop-blur-md">
+            <div className="p-6 rounded-2xl dark:bg-white/6 border border-white/6 backdrop-blur-md">
               <h4 className="font-semibold text-gray-900 dark:text-white">Quick Links</h4>
               <ul className="mt-3 text-sm text-gray-600 dark:text-gray-300 space-y-2">
                 <li><a href="#" className="hover:underline">API Docs</a></li>
@@ -136,7 +136,7 @@ export default function Contact() {
         <div className="container mx-auto px-4">
           <SectionTitle title="Office Locations" subtitle="Meet our global teams" />
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-4 rounded-xl bg-white/60 dark:bg-white/6 border border-white/6 backdrop-blur-md">
+            <div className="p-4 rounded-xl dark:bg-white/6 border border-white/6 backdrop-blur-md">
               <h5 className="font-semibold">New York</h5>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">123 Market St, NY, NY 10001</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">Timezone: EST</p>
@@ -144,7 +144,7 @@ export default function Contact() {
               <div className="mt-3 h-28 rounded-md bg-gradient-to-br from-purple-100 to-blue-100 dark:from-white/6 dark:to-white/4 flex items-center justify-center text-sm text-gray-500">Map placeholder</div>
             </div>
 
-            <div className="p-4 rounded-xl bg-white/60 dark:bg-white/6 border border-white/6 backdrop-blur-md">
+            <div className="p-4 rounded-xl dark:bg-white/6 border border-white/6 backdrop-blur-md">
               <h5 className="font-semibold">London</h5>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">10 Downing St, London</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">Timezone: GMT</p>
@@ -152,7 +152,7 @@ export default function Contact() {
               <div className="mt-3 h-28 rounded-md bg-gradient-to-br from-purple-100 to-blue-100 dark:from-white/6 dark:to-white/4 flex items-center justify-center text-sm text-gray-500">Map placeholder</div>
             </div>
 
-            <div className="p-4 rounded-xl bg-white/60 dark:bg-white/6 border border-white/6 backdrop-blur-md">
+            <div className="p-4 rounded-xl dark:bg-white/6 border border-white/6 backdrop-blur-md">
               <h5 className="font-semibold">Bangalore</h5>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Tech Park Rd, Bangalore</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">Timezone: IST</p>

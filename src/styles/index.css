@@ -144,6 +144,15 @@ html.dark .footer-bg { background: linear-gradient(180deg, rgba(8,17,32,0.9), rg
 /* Button glow */
 .btn-glow { transition: transform 260ms ease, box-shadow 260ms ease; }
 .btn-glow:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 60px rgba(102,51,153,0.12); }
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(109,40,217,0.12);
+  font-weight: 600;
+}
+.subscribe-text { color: #ffffff !important; }
 
 /* Prevent overflow from floating elements */
 .no-x-overflow { overflow-x: hidden; }
