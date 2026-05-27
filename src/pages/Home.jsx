@@ -13,7 +13,7 @@ export default function Home() {
       <section className="relative overflow-hidden hero">
         <div className="bg-blob top-left" />
         <div className="bg-blob bottom-right" />
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div initial={{ x: -30, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
             <div className="hero-badge mb-4">✨ AI Powered Productivity</div>
             <h1 className="lead mb-4">Smarter work, delivered <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">with AI</span></h1>
@@ -41,17 +41,17 @@ export default function Home() {
 
           <motion.div initial={{ x: 30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="relative">
             <div className="mockup mockup-shadow p-6 bg-white dark:bg-transparent">
-              <div className="h-[420px] w-full rounded-xl overflow-hidden relative ring-1 ring-gray-200/30 dark:ring-white/6">
+              <div className="w-full rounded-xl overflow-hidden relative ring-1 ring-gray-200/30 dark:ring-white/6 h-[320px] sm:h-[360px] md:h-[420px] lg:h-[480px]">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-gray-100 dark:from-[#071226] dark:to-[#061425]" />
-                <div className="absolute left-6 top-6 w-44 h-28 card p-4">
+                <div className="absolute left-4 top-4 w-36 sm:w-44 h-28 card p-4">
                   <div className="text-xs text-gray-400">Tasks</div>
                   <div className="font-semibold">5 overdue • 12 due today</div>
                 </div>
-                <div className="absolute right-6 top-12 w-56 h-40 card p-4">
+                <div className="absolute right-4 top-12 w-44 sm:w-56 h-40 card p-4">
                   <div className="text-xs text-gray-400">Analytics</div>
                   <div className="font-semibold text-2xl">72%</div>
                 </div>
-                <div className="absolute bottom-6 left-8 w-72 card p-4">
+                <div className="absolute bottom-4 left-6 w-[calc(100%-96px)] sm:w-72 card p-4">
                   <div className="text-xs text-gray-400">AI Assistant</div>
                   <div className="font-semibold">Suggests next actions</div>
                 </div>
@@ -101,33 +101,33 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <SectionTitle title="Pricing Preview" subtitle="Plans for teams of any size" />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
-            <div className="card p-6 border border-white/6">
+            <div className="card p-6 border border-white/6 flex flex-col h-full">
               <div className="font-semibold">Free</div>
               <div className="text-3xl font-extrabold my-4">$0<span className="text-sm">/mo</span></div>
-              <ul className="text-sm text-gray-400 space-y-2 mb-4">
+              <ul className="text-sm text-gray-400 space-y-2 mb-4 flex-1">
                 <li>Basic AI tools</li>
                 <li>Community support</li>
               </ul>
-              <button className="btn-primary w-full">Get started</button>
+              <button className="btn-primary w-full mt-auto">Get started</button>
             </div>
             <div className="card p-6 border border-white/6">
               <div className="text-xs uppercase text-accent font-bold">Popular</div>
               <div className="font-semibold">Pro</div>
               <div className="text-3xl font-extrabold my-4">$9<span className="text-sm">/mo</span></div>
-              <ul className="text-sm text-gray-400 space-y-2 mb-4">
+              <ul className="text-sm text-gray-400 space-y-2 mb-4 flex-1">
                 <li>Advanced AI + integrations</li>
                 <li>Priority support</li>
               </ul>
-              <button className="btn-primary w-full">Start Free Trial</button>
+              <button className="btn-primary w-full mt-auto">Start Free Trial</button>
             </div>
             <div className="card p-6 border border-white/6">
               <div className="font-semibold">Enterprise</div>
               <div className="text-3xl font-extrabold my-4">Custom</div>
-              <ul className="text-sm text-gray-400 space-y-2 mb-4">
+              <ul className="text-sm text-gray-400 space-y-2 mb-4 flex-1">
                 <li>SSO & Compliance</li>
                 <li>Dedicated support</li>
               </ul>
-              <button className="btn-primary w-full">Contact Sales</button>
+              <button className="btn-primary w-full mt-auto">Contact Sales</button>
             </div>
           </div>
         </div>

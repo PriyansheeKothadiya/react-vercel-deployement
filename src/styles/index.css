@@ -159,9 +159,9 @@ html.dark .footer-bg { background: linear-gradient(180deg, rgba(8,17,32,0.9), rg
 *::-webkit-scrollbar-track { background: transparent; }
 
 /* Hero utilities */
-.hero { padding-top: 7rem; padding-bottom: 6rem; }
-.hero .lead { font-size: 72px; line-height: 0.95; font-weight: 800; color: var(--text); }
-.hero .sub { font-size: 18px; color: var(--muted); }
+.hero { padding-top: 4.5rem; padding-bottom: 3.5rem; }
+.hero .lead { font-size: clamp(1.6rem, 5.5vw, 3.2rem); line-height: 1.05; font-weight: 800; color: var(--text); }
+.hero .sub { font-size: clamp(.94rem, 2.2vw, 1.125rem); color: var(--muted); }
 .hero-badge { display: inline-block; background: linear-gradient(90deg, rgba(139,92,246,0.12), rgba(6,182,212,0.08)); color: var(--primary); padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 13px; }
 
 /* Background blobs */

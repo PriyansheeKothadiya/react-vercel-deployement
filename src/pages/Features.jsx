@@ -144,11 +144,11 @@ export default function Features() {
         <div className="h-1 bg-gradient-to-r from-primary to-accent" style={{ width: `${progress}%` }} />
       </div>
 
-      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div initial={{ x: -40, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+      <section className="py-12 sm:py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <motion.div initial={{ x: -24, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <div className="inline-block px-3 py-1 rounded-xl bg-gradient-to-r from-primary/20 to-accent/10 text-xs font-semibold text-primary">Powerful AI Features</div>
-            <h1 className="mt-6 text-4xl md:text-5xl font-extrabold leading-tight">Everything Your Team Needs in One Smart Workspace</h1>
+            <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">Everything Your Team Needs in One Smart Workspace</h1>
             <p className="text-gray-400 mt-4 max-w-xl">SmartDesk brings AI, collaboration, and automation together so teams can focus on impact instead of repetitive tasks.</p>
             <div className="flex gap-4 mt-6">
               <a href="#showcase" className="btn-primary">Explore Dashboard</a>
@@ -161,10 +161,10 @@ export default function Features() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ x: 40, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+          <motion.div initial={{ x: 24, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <div className="relative">
               <AnimatedMockup />
-              <motion.div className="absolute -top-8 right-6 w-48 p-3 card backdrop-blur-sm" initial={{ y: -10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
+              <motion.div className="absolute -top-6 right-4 w-44 p-3 card backdrop-blur-sm" initial={{ y: -10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
                 <div className="text-xs text-gray-400">Active users</div>
                 <div className="font-semibold">1,243 online</div>
               </motion.div>
@@ -174,12 +174,12 @@ export default function Features() {
       </section>
 
       {/* Categories */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title="Feature Categories" subtitle="Organized for clarity and impact" />
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2">
             {CATEGORY_DATA.map((cat) => (
-              <div key={cat.category} className="p-6">
+              <div key={cat.category} className="p-4 sm:p-6">
                 <h3 className="text-xl font-semibold mb-4">{cat.category}</h3>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {cat.items.map((it) => (
@@ -195,8 +195,8 @@ export default function Features() {
       </section>
 
       {/* Interactive showcase */}
-      <section id="showcase" className="py-20 bg-gradient-to-b from-transparent to-black/5">
-        <div className="container mx-auto px-4 space-y-12">
+      <section id="showcase" className="py-12 sm:py-20 bg-gradient-to-b from-transparent to-black/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {[1, 2, 3].map((i) => (
             <div key={i} className={`grid gap-8 lg:grid-cols-2 items-center ${i % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
               <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? 40 : -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -218,8 +218,8 @@ export default function Features() {
       </section>
 
       {/* AI Automation visuals */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
+      <section className="py-12 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div initial={{ x: -30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}>
             <h2 className="text-3xl font-bold">Let AI Handle Repetitive Work</h2>
             <p className="text-gray-400 mt-4">Create rules and workflows that automatically process tasks, assign owners, and even draft messages when conditions are met.</p>
@@ -231,7 +231,7 @@ export default function Features() {
           <motion.div initial={{ x: 30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}>
             <div className="relative">
               <div className="card p-6">
-                <div className="h-64 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800" />
+                <div className="h-56 sm:h-64 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800" />
               </div>
               <div className="absolute -top-6 right-6 w-40 card p-3">AI Assistant</div>
             </div>
@@ -256,32 +256,70 @@ export default function Features() {
         <div className="container mx-auto px-4">
           <SectionTitle title="Why SmartDesk vs Traditional Tools" />
           <div className="card p-4">
-            <table className="w-full table-auto text-left">
-              <thead>
-                <tr className="text-sm text-gray-400">
-                  <th className="w-1/4">Feature</th>
-                  <th className="w-1/4">SmartDesk</th>
-                  <th className="w-1/4">Traditional Tools</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>AI Automation</td>
-                  <td>✅</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <td>Real-time Collaboration</td>
-                  <td>✅</td>
-                  <td>Limited</td>
-                </tr>
-                <tr>
-                  <td>Unified Dashboard</td>
-                  <td>✅</td>
-                  <td>Fragmented</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="hidden sm:block">
+              <table className="w-full table-auto text-left">
+                <thead>
+                  <tr className="text-sm text-gray-400">
+                    <th className="w-1/3">Feature</th>
+                    <th className="w-1/3">SmartDesk</th>
+                    <th className="w-1/3">Traditional Tools</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>AI Automation</td>
+                    <td>✅</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>Real-time Collaboration</td>
+                    <td>✅</td>
+                    <td>Limited</td>
+                  </tr>
+                  <tr>
+                    <td>Unified Dashboard</td>
+                    <td>✅</td>
+                    <td>Fragmented</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="sm:hidden space-y-4">
+              <div className="p-3 bg-white/6 rounded-lg">
+                <div className="font-semibold">AI Automation</div>
+                <div className="flex items-center gap-4 mt-2 text-sm text-gray-400">
+                  <div className="flex-1">SmartDesk</div>
+                  <div>✅</div>
+                </div>
+                <div className="flex items-center gap-4 mt-2 text-sm text-gray-400">
+                  <div className="flex-1">Traditional Tools</div>
+                  <div>—</div>
+                </div>
+              </div>
+              <div className="p-3 bg-white/6 rounded-lg">
+                <div className="font-semibold">Real-time Collaboration</div>
+                <div className="flex items-center gap-4 mt-2 text-sm text-gray-400">
+                  <div className="flex-1">SmartDesk</div>
+                  <div>✅</div>
+                </div>
+                <div className="flex items-center gap-4 mt-2 text-sm text-gray-400">
+                  <div className="flex-1">Traditional Tools</div>
+                  <div>Limited</div>
+                </div>
+              </div>
+              <div className="p-3 bg-white/6 rounded-lg">
+                <div className="font-semibold">Unified Dashboard</div>
+                <div className="flex items-center gap-4 mt-2 text-sm text-gray-400">
+                  <div className="flex-1">SmartDesk</div>
+                  <div>✅</div>
+                </div>
+                <div className="flex items-center gap-4 mt-2 text-sm text-gray-400">
+                  <div className="flex-1">Traditional Tools</div>
+                  <div>Fragmented</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
